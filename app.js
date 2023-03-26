@@ -1,7 +1,7 @@
 const mapData = {
-  minX: -20,
+  minX: 0,
   maxX: 34,
-  minY: -20,
+  minY: 0,
   maxY: 34,
   blockedSpaces: {
 
