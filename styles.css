@@ -17,13 +17,13 @@ body {
 }
 
 .game-container {
-  position       : relative;
-  width          : 540px;
-  height         : 508px;
-  background     : url(/images/f22735.png) no-repeat no-repeat;
-  transform      : scale(3);
+  position          : relative;
+  width             : 540px;
+  height            : 508px;
+  background        : url(/images/f22735.png) no-repeat no-repeat;
+  transform         : scale(3);
   /* image-rendering: pixelated; */
-  background-size: cover;
+  background-size   : cover;
 }
 
 .player-info {
@@ -194,4 +194,16 @@ button:active {
   width        : 5vw;
   border-radius: 50%;
   height       : 5vw;
+}
+
+@media only screen and (max-width: 600px) {
+  .game-container {
+    position          : relative;
+    width             : 200px;
+    height            : 200px;
+    background        : url(/images/f22735.png) no-repeat no-repeat;
+    transform         : scale(3);
+    /* image-rendering: pixelated; */
+    background-size   : cover;
+  }
 }
