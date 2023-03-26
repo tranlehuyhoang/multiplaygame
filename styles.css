@@ -21,7 +21,7 @@ body {
   width             : 540px;
   height            : 508px;
   background        : url(/images/f22735.png) no-repeat no-repeat;
-  transform         : scale(3);
+  transform         : scale(1.5);
   /* image-rendering: pixelated; */
   background-size   : cover;
 }
@@ -195,8 +195,8 @@ button:active {
   border-radius: 50%;
   height       : 5vw;
 }
-
-@media only screen and (max-width: 600px) {
+/* 
+@media only screen and (max-width: 900px) {
   .game-container {
     position          : relative;
     width             : 200px;
@@ -206,4 +206,10 @@ button:active {
     /* image-rendering: pixelated; */
     background-size   : cover;
   }
-}
+
+  /* .body {
+    transform: scale(3);
+    transform: rotate(0deg);
+
+  } */
+} */
