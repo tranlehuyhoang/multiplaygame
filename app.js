@@ -97,17 +97,13 @@ function getRandomSafeSpot() {
     objects
   );
 }
-
-
 (function () {
-
   let playerId;
   let playerRef;
   let players = {};
   let playerElements = {};
   let coins = {};
   let coinElements = {};
-
   const gameContainer = document.querySelector(".game-container");
   const playerNameInput = document.querySelector("#player-name");
   const playerColorButton = document.querySelector("#player-color");
@@ -140,6 +136,7 @@ function getRandomSafeSpot() {
 
 
   function handleArrowPress(xChange = 0, yChange = 0) {
+    console.log(xChange, yChange)
     const newX = players[playerId].x + xChange;
     const newY = players[playerId].y + yChange;
     if (!isSolid(newX, newY)) {
@@ -159,14 +156,28 @@ function getRandomSafeSpot() {
 
   function initGame() {
 
-    new KeyPressListener("ArrowUp", () => handleArrowPress(0, -1))
-    new KeyPressListener("ArrowDown", () => handleArrowPress(0, 1))
-    new KeyPressListener("ArrowLeft", () => handleArrowPress(-1, 0))
-    new KeyPressListener("ArrowRight", () => handleArrowPress(1, 0))
-    new KeyPressListener("KeyW", () => handleArrowPress(0, -1))
-    new KeyPressListener("KeyS", () => handleArrowPress(0, 1))
-    new KeyPressListener("KeyA", () => handleArrowPress(-1, 0))
-    new KeyPressListener("KeyD", () => handleArrowPress(1, 0))
+    // new KeyPressListener("ArrowUp", () => handleArrowPress(0, -1))
+    // new KeyPressListener("ArrowDown", () => handleArrowPress(0, 1))
+    // new KeyPressListener("ArrowLeft", () => handleArrowPress(-1, 0))
+    // new KeyPressListener("ArrowRight", () => handleArrowPress(1, 0))
+    // new KeyPressListener("KeyW", () => handleArrowPress(0, -1))
+    // new KeyPressListener("KeyS", () => handleArrowPress(0, 1))
+    // new KeyPressListener("KeyA", () => handleArrowPress(-1, 0))
+    // new KeyPressListener("KeyD", () => handleArrowPress(1, 0))
+    document.addEventListener("keydown", (event) => {
+      if (event.code === "KeyW" || event.code === "ArrowUp") {
+        handleArrowPress(0, -1)
+      }
+      if (event.code === "KeyS" || event.code === "ArrowDown") {
+        handleArrowPress(0, 1)
+      }
+      if (event.code === "KeyA" || event.code === "ArrowLeft") {
+        handleArrowPress(-1, 0)
+      }
+      if (event.code === "KeyD" || event.code === "ArrowRight") {
+        handleArrowPress(1, 0)
+      }
+    })
     document.querySelector('.len').addEventListener("click", () => handleArrowPress(0, -1));
     document.querySelector('.xuong').addEventListener("click", () => handleArrowPress(0, 1));
     document.querySelector('.trai').addEventListener("click", () => handleArrowPress(-1, 0));
@@ -248,10 +259,12 @@ function getRandomSafeSpot() {
       // Create the DOM Element
       const coinElement = document.createElement("div");
       coinElement.classList.add("Coin", "grid-cell");
+
       coinElement.innerHTML = `
-        <div class="Coin_shadow grid-cell"></div>
-        <div class="Coin_sprite grid-cell"></div>
-      `;
+      <div class="Coin_shadow grid-cell" ></div>
+      <div class="Coin_sprite grid-cell" ></div>
+    `;
+
 
       // Position the Element
       const left = 16 * coin.x + "px";
@@ -273,6 +286,7 @@ function getRandomSafeSpot() {
     //Updates player name with text input
     playerNameInput.addEventListener("change", (e) => {
       const newName = e.target.value || createName();
+      console.log(newName)
       playerNameInput.value = newName;
       playerRef.update({
         name: newName
@@ -294,7 +308,7 @@ function getRandomSafeSpot() {
   }
 
   firebase.auth().onAuthStateChanged((user) => {
-    console.log(user)
+
     if (user) {
       //You're logged in!
       playerId = user.uid;

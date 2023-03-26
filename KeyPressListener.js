@@ -10,12 +10,12 @@ class KeyPressListener {
          }
       };
       this.keyupFunction = function (event) {
-         console.log(keyCode)
+
          if (event.code === keyCode) {
             keySafe = true;
          }
       };
-      console.log('object')
+
       document.addEventListener("keydown", this.keydownFunction);
       document.addEventListener("keyup", this.keyupFunction);
       // document.querySelector('.len').addEventListener("click", this.keydownFunction);
@@ -29,7 +29,3 @@ class KeyPressListener {
 
 
 }
-function hehe() {
-   console.log('ehhe')
-}
-document.addEventListener("keydown", hehe())
