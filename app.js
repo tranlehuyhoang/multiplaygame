@@ -2,7 +2,7 @@ const mapData = {
   minX: 0,
   maxX: 34,
   minY: 0,
-  maxY: 34,
+  maxY: 32,
   blockedSpaces: {
 
     // "7x4": true,
