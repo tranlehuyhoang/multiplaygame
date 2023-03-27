@@ -20,7 +20,7 @@ body {
   position          : relative;
   width             : 540px;
   height            : 508px;
-  background        : url(/images/f22735.png) no-repeat no-repeat;
+  background        : url(/images/images/ma.jpg) no-repeat no-repeat;
   transform         : scale(1.5);
   /* image-rendering: pixelated; */
   background-size   : cover;
