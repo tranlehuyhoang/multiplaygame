@@ -80,8 +80,8 @@ button:active {
 /* Characters */
 .grid-cell {
   position: absolute;
-  width   : 16px;
-  height  : 16px;
+  width   : 148px;
+  height  : 180px;
 }
 
 .Character {
@@ -109,32 +109,37 @@ button:active {
 .Character_sprite {
   overflow  : hidden;
   top       : -3px;
-  background: url(/images/characters.png);
+  background: url(/images/drags.png);
 }
 
 .Character[data-direction="right"] .Character_sprite {
-  background-position-x: 16px;
+  -moz-transform   : scaleX(-1);
+  -o-transform     : scaleX(-1);
+  -webkit-transform: scaleX(-1);
+  transform        : scaleX(-1);
+  filter           : FlipH;
+  -ms-filter       : "FlipH";
 }
 
 .Character[data-color="red"] .Character_sprite {
-  background-position-y: -16px;
+  background-position-y: 180px;
 }
 
 .Character[data-color="orange"] .Character_sprite {
-  background-position-y: -32px;
+  background-position-y: 360px;
 }
 
 .Character[data-color="yellow"] .Character_sprite {
-  background-position-y: -48px;
+  background-position-y: 540px;
 }
 
-.Character[data-color="green"] .Character_sprite {
+/* .Character[data-color="green"] .Character_sprite {
   background-position-y: -64px;
 }
 
 .Character[data-color="purple"] .Character_sprite {
   background-position-y: -80px;
-}
+} */
 
 .Character_shadow {
   background: url(/images/shadow.png) no-repeat no-repeat;
