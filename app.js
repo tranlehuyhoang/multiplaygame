@@ -21,7 +21,7 @@ const mapData = {
 };
 
 // Options for Player Colors... these are in the same order as our sprite sheet
-const playerColors = ["blue", "red", "orange", "yellow", "green", "purple"];
+const playerColors = ["blue", "red", "orange", "yellow"];
 
 //Misc Helpers
 function randomFromArray(array) {
@@ -167,14 +167,34 @@ function getRandomSafeSpot() {
     document.addEventListener("keydown", (event) => {
       if (event.code === "KeyW" || event.code === "ArrowUp") {
         handleArrowPress(0, -1)
+        const mySkinIndex = playerColors.indexOf(players[playerId].color);
+        const nextColor = playerColors[mySkinIndex + 1] || playerColors[0];
+        playerRef.update({
+          color: nextColor
+        })
       }
       if (event.code === "KeyS" || event.code === "ArrowDown") {
+        const mySkinIndex = playerColors.indexOf(players[playerId].color);
+        const nextColor = playerColors[mySkinIndex + 1] || playerColors[0];
+        playerRef.update({
+          color: nextColor
+        })
         handleArrowPress(0, 1)
       }
       if (event.code === "KeyA" || event.code === "ArrowLeft") {
+        const mySkinIndex = playerColors.indexOf(players[playerId].color);
+        const nextColor = playerColors[mySkinIndex + 1] || playerColors[0];
+        playerRef.update({
+          color: nextColor
+        })
         handleArrowPress(-1, 0)
       }
       if (event.code === "KeyD" || event.code === "ArrowRight") {
+        const mySkinIndex = playerColors.indexOf(players[playerId].color);
+        const nextColor = playerColors[mySkinIndex + 1] || playerColors[0];
+        playerRef.update({
+          color: nextColor
+        })
         handleArrowPress(1, 0)
       }
     })
@@ -195,7 +215,7 @@ function getRandomSafeSpot() {
         let el = playerElements[key];
         // Now update the DOM
         el.querySelector(".Character_name").innerText = characterState.name;
-
+        // playerElements[key].admin == true ? el.querySelector(".Character_coins").innerText = 999999999999999999 : el.querySelector(".Character_coins").innerText = characterState.coins
 
         el.querySelector(".Character_coins").innerText = characterState.coins;
         el.setAttribute("data-color", characterState.color);
@@ -213,15 +233,20 @@ function getRandomSafeSpot() {
       if (addedPlayer.id === playerId) {
         characterElement.classList.add("you");
       }
+
       characterElement.innerHTML = (`
-        <div class="Character_shadow grid-cell"></div>
-        <div class="Character_sprite grid-cell"></div>
-        <div class="Character_name-container">
-          <span class="Character_name"></span>
-          <span class="Character_coins">0</span>
-        </div>
-        <div class="Character_you-arrow"></div>
-      `);
+      
+      <div class="Character_shadow grid-cell"></div>
+      <div class="Character_sprite grid-cell"></div>
+      <div class="Character_name-container">
+        <span class="Character_name"></span>
+        <span class="Character_coins">0</span>
+      </div>
+      <div class="Character_you-arrow"></div>
+  
+       
+          
+          `);
       playerElements[addedPlayer.id] = characterElement;
 
       //Fill in some initial state
@@ -322,6 +347,7 @@ function getRandomSafeSpot() {
 
       playerRef.set({
         id: playerId,
+        admin: false,
         name,
         direction: "right",
         color: randomFromArray(playerColors),
