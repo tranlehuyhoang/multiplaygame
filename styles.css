@@ -112,6 +112,18 @@ button:active {
   background: url(/images/drags.png);
 }
 
+.Character[data-color="blue"] .Character_sprite {
+  overflow  : hidden;
+  top       : -3px;
+  background: url(/images/characters.png);
+}
+
+.Character[data-color="blue"] .grid-cell {
+  position: absolute;
+  width   : 16px;
+  height  : 16px;
+}
+
 .Character[data-direction="right"] .Character_sprite {
   -moz-transform   : scaleX(-1);
   -o-transform     : scaleX(-1);
@@ -149,7 +161,7 @@ button:active {
   position      : absolute;
   top           : -12px;
   left          : -5px;
-  font-size     : 50px;
+  font-size     : 5px;
   padding       : 1px 2px 1px;
   border-radius : 3px;
   background    : #333;
