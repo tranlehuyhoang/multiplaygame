@@ -350,7 +350,7 @@ function getRandomSafeSpot() {
         admin: false,
         name,
         direction: "right",
-        color: randomFromArray(playerColors),
+        color: 'blue',
         x,
         y,
         coins: 0,
