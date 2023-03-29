@@ -1,8 +1,8 @@
 const mapData = {
-  minX: -99,
-  maxX: 99,
-  minY: -99,
-  maxY: 99,
+  minX: 0,
+  maxX: 34,
+  minY: 0,
+  maxY: 32,
   blockedSpaces: {
 
     // "7x4": true,
@@ -167,34 +167,34 @@ function getRandomSafeSpot() {
     document.addEventListener("keydown", (event) => {
       if (event.code === "KeyW" || event.code === "ArrowUp") {
         handleArrowPress(0, -1)
-        const mySkinIndex = playerColors.indexOf(players[playerId].color);
-        const nextColor = playerColors[mySkinIndex + 1] || playerColors[0];
-        playerRef.update({
-          color: nextColor
-        })
+        // const mySkinIndex = playerColors.indexOf(players[playerId].color);
+        // const nextColor = playerColors[mySkinIndex + 1] || playerColors[0];
+        // playerRef.update({
+        //   color: nextColor
+        // })
       }
       if (event.code === "KeyS" || event.code === "ArrowDown") {
-        const mySkinIndex = playerColors.indexOf(players[playerId].color);
-        const nextColor = playerColors[mySkinIndex + 1] || playerColors[0];
-        playerRef.update({
-          color: nextColor
-        })
+        // const mySkinIndex = playerColors.indexOf(players[playerId].color);
+        // const nextColor = playerColors[mySkinIndex + 1] || playerColors[0];
+        // playerRef.update({
+        //   color: nextColor
+        // })
         handleArrowPress(0, 1)
       }
       if (event.code === "KeyA" || event.code === "ArrowLeft") {
-        const mySkinIndex = playerColors.indexOf(players[playerId].color);
-        const nextColor = playerColors[mySkinIndex + 1] || playerColors[0];
-        playerRef.update({
-          color: nextColor
-        })
+        // const mySkinIndex = playerColors.indexOf(players[playerId].color);
+        // const nextColor = playerColors[mySkinIndex + 1] || playerColors[0];
+        // playerRef.update({
+        //   color: nextColor
+        // })
         handleArrowPress(-1, 0)
       }
       if (event.code === "KeyD" || event.code === "ArrowRight") {
-        const mySkinIndex = playerColors.indexOf(players[playerId].color);
-        const nextColor = playerColors[mySkinIndex + 1] || playerColors[0];
-        playerRef.update({
-          color: nextColor
-        })
+        // const mySkinIndex = playerColors.indexOf(players[playerId].color);
+        // const nextColor = playerColors[mySkinIndex + 1] || playerColors[0];
+        // playerRef.update({
+        //   color: nextColor
+        // })
         handleArrowPress(1, 0)
       }
     })
